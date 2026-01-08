@@ -23,7 +23,7 @@ export default function Home() {
               />
 
               {/* Fade from left → transparent */}
-              <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/30 via-60% to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/30 via-90% to-transparent" />
             </div>
           </div>
 
