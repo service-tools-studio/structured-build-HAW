@@ -13,7 +13,7 @@ export default function StepsSection({ section }: StepsSectionProps) {
         <div className="rounded-3xl border border-border bg-bg shadow-soft overflow-hidden">
           <div className="p-6 sm:p-8 border-b border-border">
             {eyebrow && (
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-fg/60">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-fg/60 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
                 {eyebrow}
               </p>
             )}

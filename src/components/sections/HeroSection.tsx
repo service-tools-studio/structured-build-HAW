@@ -24,20 +24,23 @@ export default function HeroSection({ section }: HeroSectionProps) {
       <section className="relative border-b border-border hidden sm:block translate-y-5">
         {/* Sticky background */}
         <div className="sticky top-16 h-[75vh] z-0">
-          <div className="relative h-full translate-x-20 scale-[0.99]">
-            {image && <Image
-              src={image}
-              alt="Hero"
-              fill
-              priority
-              className="object-cover sm:object-[70%_center]"
-            />}
+          {/* This is the CLIP boundary: same width as Header */}
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 h-full overflow-hidden">
+            {/* This can translate without creating horizontal scroll */}
+            <div className="relative h-full translate-x-20 scale-[0.99]">
+              {image && (
+                <Image
+                  src={image}
+                  alt="Hero"
+                  fill
+                  priority
+                  className="object-cover sm:object-[70%_center]"
+                />
+              )}
 
-            {/* Fade (desktop only): slightly stronger for clarity */}
-            <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/30 via-65% to-transparent" />
-
-            {/* Subtle brightness/contrast control to reduce competition with text */}
-            <div className="absolute inset-0 bg-bg/1" />
+              <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/30 via-65% to-transparent" />
+              <div className="absolute inset-0 bg-bg/1" />
+            </div>
           </div>
         </div>
 
@@ -45,11 +48,11 @@ export default function HeroSection({ section }: HeroSectionProps) {
         <div className="relative z-10 -mt-[75vh] -translate-y-12">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 pt-28">
             <div className="max-w-[clamp(20rem,45vw,36rem)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-fg/60">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-fg/60 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
                 {eyebrow}
               </p>
 
-              <h1 className="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight max-w-[18ch] sm:max-w-none">
+              <h1 className="font-heading mt-3 text-3xl sm:text-5xl font-semibold tracking-tight max-w-[18ch] sm:max-w-none">
                 {headline}
               </h1>
 
@@ -108,8 +111,8 @@ export default function HeroSection({ section }: HeroSectionProps) {
 
         {/* Text below image */}
         <div className="mx-auto max-w-6xl px-4 py-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-fg/60">
-            Structured Build
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-fg/60 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
+            {eyebrow}
           </p>
 
           <h1 className="mt-3 text-3xl font-semibold tracking-tight">

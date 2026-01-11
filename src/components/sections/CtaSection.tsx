@@ -15,7 +15,7 @@ export default function CtaSection({ section }: CtaSectionProps) {
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
             <div className="max-w-2xl">
               {eyebrow && (
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-fg/60">
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-fg/60 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
                   {eyebrow}
                 </p>
               )}

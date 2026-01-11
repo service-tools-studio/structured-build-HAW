@@ -1,3 +1,4 @@
+import { FontKey } from './app/layout';
 export type Section =
   | {
     type: "hero";
@@ -51,180 +52,201 @@ export type SitePage = {
 
 export const site = {
   brand: {
-    name: "Your Company Name",
-    tagline: "Your company tagline goes here.",
-    logo: "/brand/logo.png",
+    name: "Heart Aligned Wellness LLC",
+    tagline: "Women's wellness support in Portland.",
+    logo: "/brand/heart-aligned-logo.png",
   },
 
   theme: {
-    font: "inter" as "inter" | "manrope" | "instrument",
+    bodyFont: "beVietnam" as FontKey,
+    headingFont: "recoleta" as FontKey,
     colors: {
-      bg: "0 0% 100%",
-      fg: "240 10% 3.9%",
-      muted: "240 5% 96%",
-      border: "240 6% 90%",
-      primary: "222 89% 55%",
-      accent: "38 92% 50%",
+      bg: "330 100% 98%", // pink wash 💗
+      fg: "240 10% 8%",
+      muted: "330 40% 94%",
+      border: "330 25% 85%",
+      primary: "330 85% 62%",
+      accent: "330 85% 65%",
     },
   },
 
-  // ✅ Pages drive both nav + routing (via /[slug])
   pages: [
     {
-      slug: "services",
-      navLabel: "Services",
+      slug: "offerings",
+      navLabel: "Offerings",
       meta: {
-        title: "Services",
+        title: "Offerings",
         description:
-          "What’s included in the structured build and what can be added on.",
+          "Women’s circles, crystal bowl sound healing, personal training + supportive nutrition, and a digital product to soften perfectionism.",
       },
       sections: [
         {
           type: "featureGrid",
-          eyebrow: "Structured build",
-          heading: "What’s included",
+          eyebrow: "Offerings",
+          heading: "What we offer",
           items: [
             {
-              title: "Up to 5 pages",
-              desc: "Home, Services, About, Reviews, Contact.",
+              title: "Women’s circles (Temple of Nurturing)",
+              desc: "Curated evenings of connection, reflection, and grounded sisterhood in the inner NE Portland area.",
             },
             {
-              title: "Mobile-first",
-              desc: "Polished on phones, tablets, and desktop.",
+              title: "Crystal singing bowl sound healing",
+              desc: "Private or small-group sessions designed for deep relaxation, integration, and emotional reset.",
             },
             {
-              title: "SEO basics",
-              desc: "Metadata, headings, performance-friendly build.",
+              title: "Personal training + supportive nutrition",
+              desc: "Kelsey brings personal training and GAPS-certified nutritional support for sustainable strength, energy, and structure.",
             },
             {
-              title: "Lead capture",
-              desc: "Contact form + booking link or inquiry CTA.",
+              title: "Get Over Perfectionism - eBook",
+              desc: "A self-paced experience to soften self-criticism, build self-trust, and take aligned action without burning out.",
             },
           ],
-        },
+        } satisfies Extract<Section, { type: "featureGrid" }>,
+
         {
           type: "featureGrid",
-          eyebrow: "Add-ons",
-          heading: "Optional upgrades",
+          eyebrow: "Optional",
+          heading: "Add-ons",
           items: [
-            { title: "Extra pages", desc: "Add additional pages as needed." },
             {
-              title: "Advanced integrations",
-              desc: "Stripe/payment processing, email marketing, etc.",
+              title: "Private coaching intensives",
+              desc: "Deeper, focused support when you want momentum and clarity.",
             },
             {
-              title: "Custom tools",
-              desc: "Estimators, calculators, interactive widgets.",
+              title: "Custom event facilitation",
+              desc: "For teams, retreats, and private groups — scoped to your space and goals.",
             },
             {
-              title: "Heavily revised layouts",
-              desc: "Deeper layout changes beyond the base structure.",
+              title: "Email marketing setup",
+              desc: "Welcome + nurture sequences to support your community and offers.",
+            },
+            {
+              title: "Payments + scheduling integrations",
+              desc: "Stripe, Calendly, and related tools — set up cleanly and simply.",
             },
           ],
-        },
+        } satisfies Extract<Section, { type: "featureGrid" }>,
+
         {
           type: "featureGrid",
-          eyebrow: "Handled separately",
-          heading: "Typically provided by your team",
+          eyebrow: "Boundaries",
+          heading: "Handled separately",
           items: [
-            { title: "Copywriting", desc: "Writing and messaging strategy." },
-            { title: "Branding / visual identity", desc: "Logo, brand system, and assets." },
-            { title: "Blog", desc: "Ongoing posts, categories, and editorial workflows." },
+            {
+              title: "Clinical or medical care",
+              desc: "We are not a replacement for medical or clinical support.",
+            },
+            {
+              title: "Crisis support",
+              desc: "If you’re in crisis, please seek immediate local support resources.",
+            },
+            {
+              title: "Diagnosis or treatment",
+              desc: "We do not diagnose or treat medical conditions.",
+            },
           ],
-        },
+        } satisfies Extract<Section, { type: "featureGrid" }>,
+
         {
           type: "cta",
-          eyebrow: "Next step",
-          heading: "Ready to launch?",
+          eyebrow: "Ready to begin?",
+          heading: "Reach out with what you’re interested in.",
           blurb:
-            "Send a quick note with your business name, services, and preferred timeline. We’ll reply with next steps.",
-          button: { label: "Get started", href: "/contact" },
-        },
+            "Send a note with what you’re looking for (circles, sound healing, training, or the Get Over Perfectionism eBook). We’ll reply with next steps and availability.",
+          button: { label: "Contact", href: "/contact" },
+        } satisfies Extract<Section, { type: "cta" }>,
       ],
     },
+
     {
       slug: "process",
       navLabel: "Process",
       meta: {
         title: "Process",
-        description: "A calm, defined process from intake to launch.",
+        description: "A calm, defined process from first contact to integration.",
       },
       sections: [
         {
           type: "steps",
           eyebrow: "How it works",
           heading: "A calm, defined process",
-          description: 'Each step has a clear deliverable and keeps momentum high.',
+          description:
+            "A clear flow that keeps things grounded and practical — so you leave with real integration.",
           steps: [
             {
-              title: "Intake",
-              desc: "You share goals, services, and any brand assets.",
+              title: "Connect",
+              desc: "Reach out with what you’re looking for and your timing.",
             },
             {
-              title: "Draft",
-              desc: "We apply your content to the structured layout.",
+              title: "Choose an offering",
+              desc: "We’ll recommend the best fit: circle, sound healing, training, or digital.",
             },
             {
-              title: "Review",
-              desc: "One revision round—tight and focused.",
+              title: "Arrive + receive",
+              desc: "You’re guided through a grounded experience designed for real integration.",
             },
             {
-              title: "Launch",
-              desc: "Deploy, connect domain (if applicable), handoff.",
+              title: "Integrate",
+              desc: "You’ll leave with practical next steps—not just a good night.",
             },
           ],
-        },
+        } satisfies Extract<Section, { type: "steps" }>,
+
         {
           type: "cta",
-          eyebrow: "Timeline",
-          heading: "Most sites launch in 7–14 days.",
-          blurb:
-            "Timeline depends on content readiness and the size of your scope.",
-          button: { label: "Start your build", href: "/contact" },
-        },
+          eyebrow: "Next step",
+          heading: "Want support choosing the right offering?",
+          blurb: "Send a note and we’ll point you toward the best fit.",
+          button: { label: "Contact", href: "/contact" },
+        } satisfies Extract<Section, { type: "cta" }>,
       ],
     },
+
     {
       slug: "reviews",
       navLabel: "Reviews",
       meta: {
         title: "Reviews",
-        description: "What clients say about the process and the result.",
+        description: "What people say after circles and sound healing sessions.",
       },
       sections: [
         {
           type: "testimonials",
-          eyebrow: "What clients say",
-          heading: "Results that feel calm and professional",
+          eyebrow: "What people say",
+          heading: "Gentle, grounded, and powerful",
           items: [
             {
-              quote: "Premium feel, fast load, clear calls to action.",
-              name: "Happy Client",
-              meta: "Local service business",
+              quote:
+                "I left feeling softer and more present in my body—like my nervous system finally exhaled.",
+              name: "Circle attendee",
+              meta: "Portland",
             },
             {
               quote:
-                "Smooth process and a site that feels calm and professional.",
-              name: "Another Client",
-              meta: "Practitioner",
+                "The sound healing was both gentle and powerful. I slept deeply and felt clearer for days after.",
+              name: "Client",
+              meta: "Sound healing session",
             },
           ],
-        },
+        } satisfies Extract<Section, { type: "testimonials" }>,
+
         {
           type: "cta",
-          eyebrow: "Work together",
-          heading: "Want a site that feels premium and clear?",
-          blurb: "Share a few details and we’ll recommend the best next step.",
+          eyebrow: "Join us",
+          heading: "Ready to soften and come home to yourself?",
+          blurb: "Reach out and we’ll share next steps and availability.",
           button: { label: "Contact", href: "/contact" },
-        },
+        } satisfies Extract<Section, { type: "cta" }>,
       ],
     },
+
     {
       slug: "faq",
       navLabel: "FAQ",
       meta: {
         title: "Frequently Asked Questions",
-        description: "Common questions about scope, timeline, and add-ons.",
+        description: "Common questions about circles, sound healing, and logistics.",
       },
       sections: [
         {
@@ -233,120 +255,129 @@ export const site = {
           heading: "Frequently Asked Questions",
           items: [
             {
-              q: "Is this a template?",
-              a: "Not quite. It’s a structured build — meaning the overall layout and section flow are predefined for speed and clarity. We tailor the site to your brand through fonts, colors, imagery, and copy, and adjust emphasis within the system so it feels specific to your business. Requests that require new layouts, custom functionality, or multiple design directions are scoped separately.",
+              q: "Where are circles hosted?",
+              a: "Circles are hosted in the inner NE Portland area. The exact address is shared after registration to keep the space private and intentional.",
             },
             {
-              q: "How fast can we launch?",
-              a: "Typical timeline is 7–14 days depending on content readiness.",
+              q: "Do I need experience with circles or sound healing?",
+              a: "No. You can come exactly as you are—curious, nervous, excited, tender, all of it.",
             },
             {
-              q: "What’s out of scope?",
-              a: "Extra pages, deep SEO, custom features, advanced integrations, and custom tools like calculators. These can be discussed as add-ons at extra cost.",
+              q: "Is the Get Over Perfectionism eBook included with circles?",
+              a: "Not by default. The Get Over Perfectionism eBook is available separately, and we sometimes offer bundles or seasonal promos.",
+            },
+            {
+              q: "What should I bring?",
+              a: "Wear something comfortable. For circles, bring a journal if you’d like. We’ll share any additional guidance after you register.",
             },
           ],
-        },
+        } satisfies Extract<Section, { type: "faq" }>,
+
         {
           type: "cta",
-          eyebrow: "Questions?",
-          heading: "Still deciding?",
-          blurb: "Send your questions—we’ll reply with a clear recommendation.",
-          button: { label: "Ask a question", href: "/contact" },
-        },
+          eyebrow: "Still wondering?",
+          heading: "Ask a question.",
+          blurb: "Send a note and we’ll reply with clarity and care.",
+          button: { label: "Contact", href: "/contact" },
+        } satisfies Extract<Section, { type: "cta" }>,
       ],
     },
   ] satisfies SitePage[],
 
-  // Home is still a dedicated route (/). Keep its data here.
-  // Your Home page can render these sections the same way PageRenderer does.
+  // Home is the dedicated route (/)
   home: {
     sections: [
       {
         type: "hero",
-        eyebrow: "Structured build",
-        headline: "This is a headline for your website.",
+        eyebrow: "A space to soften",
+        headline: "Return to your heart. Return to your truth.",
         subhead:
-          "This is a subheading that provides more detail about your services and value proposition.",
-        primaryCta: { label: "Get started", href: "/contact" },
-        secondaryCta: { label: "View services", href: "/services" },
+          "Heart Aligned Wellness blends women’s circles, crystal bowl sound healing, and practical support to help you soften perfectionism, build regulation, and live with more ease.",
+        primaryCta: { label: "Join a circle", href: "/contact" },
+        secondaryCta: { label: "Explore offerings", href: "/offerings" },
         image: "/images/hero.png",
-        pills: ["No subscriptions", "7–14 day launch", "Built for service businesses"],
+        pills: ["Portland-based", "Women's Community", "Embodied spirituality"],
       },
       {
         type: "featureGrid",
-        eyebrow: "Structured build",
-        heading: "What’s included",
+        eyebrow: "Offerings",
+        heading: "What we offer",
         items: [
           {
-            title: "Up to 5 pages",
-            desc: "Home, Services, About, Reviews, Contact.",
+            title: "Women’s circles (Temple of Nurturing)",
+            desc: "Curated evenings of connection, reflection, and grounded sisterhood in the inner NE Portland area.",
           },
           {
-            title: "Mobile-first",
-            desc: "Polished on phones, tablets, and desktop.",
+            title: "Crystal singing bowl sound healing",
+            desc: "Private or small-group sessions designed for deep relaxation, integration, and emotional reset.",
           },
           {
-            title: "SEO basics",
-            desc: "Metadata, headings, performance-friendly build.",
+            title: "Personal training + supportive nutrition",
+            desc: "Kelsey brings personal training and GAPS-certified nutritional support for sustainable strength, energy, and structure.",
           },
           {
-            title: "Lead capture",
-            desc: "Contact form + booking link or inquiry CTA.",
+            title: "Get Over Perfectionism eBook",
+            desc: "A self-paced experience to soften self-criticism, build self-trust, and take aligned action without burning out.",
           },
         ],
       },
       {
-        type: "featureGrid",
-        eyebrow: "Add-ons",
-        heading: "Optional upgrades",
-        items: [
-          { title: "Extra pages", desc: "Add additional pages as needed." },
+        type: "steps",
+        eyebrow: "How it works",
+        heading: "A calm, defined process",
+        description:
+          "A clear flow that keeps things grounded and practical — so you leave with real integration.",
+        steps: [
           {
-            title: "Advanced integrations",
-            desc: "Stripe/payment processing, email marketing, etc.",
+            title: "Connect",
+            desc: "Reach out with what you’re looking for and your timing.",
           },
           {
-            title: "Custom tools",
-            desc: "Estimators, calculators, interactive widgets.",
+            title: "Choose an offering",
+            desc: "We’ll recommend the best fit: circle, sound healing, training, or digital.",
           },
           {
-            title: "Heavily revised layouts",
-            desc: "Deeper layout changes beyond the base structure.",
+            title: "Arrive + receive",
+            desc: "You’re guided through a grounded experience designed for real integration.",
+          },
+          {
+            title: "Integrate",
+            desc: "You’ll leave with practical next steps—not just a good night.",
           },
         ],
       },
       {
         type: "cta",
-        eyebrow: "Next step",
-        heading: "Ready to launch?",
+        eyebrow: "Ready to begin?",
+        heading: "Reach out with what you’re interested in.",
         blurb:
-          "Send a quick note with your business name, services, and preferred timeline. We’ll reply with next steps.",
-        button: { label: "Get started", href: "/contact" },
-      }
+          "Send a note with what you’re interested in (circles, sound healing, training, or the Get Over Perfectionism eBook). We’ll reply with next steps and availability.",
+        button: { label: "Contact", href: "/contact" },
+      },
     ] satisfies Section[],
   },
 
-  // Contact usually remains a dedicated page (/contact).
+  // Contact remains a dedicated route (/contact)
   contact: {
-    title: "Ready to launch?",
+    title: "Ready to begin?",
     blurb:
-      "Send a quick note with your business name, services, and preferred timeline. We’ll reply with next steps.",
-    email: "hello@example.com",
-    city: "[Your City, State]",
+      "Send a note with what you’re interested in (circles, sound healing, training, or the Get Over Perfectionism eBook). We’ll reply with next steps and availability.",
+    email: "being.jasmin.miranda@gmail.com",
+    city: "Portland, OR",
     leftPanel: {
       heading: "What to share",
       description:
-        "To keep things efficient, please include the following in your message:",
+        "To help us guide you toward the right offering, you can include any of the following:",
       points: [
-        "Your business name and services",
-        "Your preferred launch timeline",
-        "Any existing brand or website links (if applicable)"
+        "What you’re interested in (women’s circle, sound healing, training, or eBook)",
+        "A little about what you’re navigating or seeking support with",
+        "Any timing considerations or questions you have"
       ],
-      note: 'This is a structured build with a defined scope and timeline. If your project requires something more custom, we’ll discuss next steps before moving forward.',
+      note: 'There’s no “right” way to write — just speak from where you are.',
     }
   },
 
   footer: {
-    finePrint: `© ${new Date().getFullYear()} Sites by Jasmin | Structured Build Demo`,
+    finePrint: `© ${new Date().getFullYear()} Heart Aligned Wellness LLC`,
   },
 } as const;
