@@ -14,7 +14,7 @@ export default function ContactPage() {
       {/* Header */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-16">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-fg/60">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-fg/60 bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] bg-clip-text text-transparent animate-shimmer">
             Contact
           </p>
           <h1 className="mt-3 text-3xl sm:text-5xl font-semibold tracking-tight">
