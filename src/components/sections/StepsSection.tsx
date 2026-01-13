@@ -1,8 +1,11 @@
 import type { Section } from "@/site.config";
+import { Sparkles, HeartHandshake, Leaf, Sun } from "lucide-react";
 
 type StepsSectionProps = {
   section: Extract<Section, { type: "steps" }>;
 };
+
+const STEP_ICONS = [Sparkles, HeartHandshake, Leaf, Sun];
 
 export default function StepsSection({ section }: StepsSectionProps) {
   const { eyebrow, heading, steps, description } = section;
@@ -22,27 +25,39 @@ export default function StepsSection({ section }: StepsSectionProps) {
               {heading}
             </h2>
 
-            {description && <p className="mt-2 text-sm text-fg/70 max-w-prose">
-              {description}
-            </p>}
+            {description && (
+              <p className="mt-2 text-sm text-fg/70 max-w-prose">
+                {description}
+              </p>
+            )}
           </div>
 
           <div className="p-6 sm:p-8">
             <div className="grid gap-4 md:grid-cols-2">
-              {steps.map((s, idx) => (
-                <div
-                  key={`${s.title}-${idx}`}
-                  className="rounded-2xl border border-border bg-muted/40 p-5"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="h-9 w-9 rounded-xl bg-bg border border-border flex items-center justify-center text-sm font-semibold">
-                      {idx + 1}
+              {steps.map((s, idx) => {
+                const Icon = STEP_ICONS[idx % STEP_ICONS.length];
+
+                return (
+                  <div
+                    key={`${s.title}-${idx}`}
+                    className="rounded-2xl border border-border bg-muted/40 p-5"
+                  >
+                    <div className="flex items-center gap-3">
+                      {/* Merged icon + number */}
+                      <div className="relative h-10 w-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center text-primary">
+                        <Icon className="h-4 w-4" aria-hidden="true" />
+                        <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-bg border border-border text-[10px] font-semibold flex items-center justify-center text-fg">
+                          {idx + 1}
+                        </span>
+                      </div>
+
+                      <div className="text-sm font-semibold">{s.title}</div>
                     </div>
-                    <div className="text-sm font-semibold">{s.title}</div>
+
+                    <div className="mt-3 text-sm text-fg/70">{s.desc}</div>
                   </div>
-                  <div className="mt-3 text-sm text-fg/70">{s.desc}</div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

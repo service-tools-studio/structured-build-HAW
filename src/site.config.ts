@@ -14,7 +14,7 @@ export type Section =
     type: "featureGrid";
     eyebrow?: string;
     heading: string;
-    items: { title: string; desc: string }[];
+    items: { title: string; desc: string, href?: string }[];
   }
   | {
     type: "steps";
@@ -88,18 +88,22 @@ export const site = {
             {
               title: "Women’s circles (Temple of Nurturing)",
               desc: "Curated evenings of connection, reflection, and grounded sisterhood in the inner NE Portland area.",
+              href: 'https://form.jotform.com/252805437656060'
             },
             {
               title: "Crystal singing bowl sound healing",
               desc: "Private or small-group sessions designed for deep relaxation, integration, and emotional reset.",
+              href: 'https://calendly.com/being-jasmin-miranda/private-alignment-call'
             },
             {
               title: "Personal training + supportive nutrition",
               desc: "Kelsey brings personal training and GAPS-certified nutritional support for sustainable strength, energy, and structure.",
+              href: 'https://instagram.com/coach1111collins'
             },
             {
               title: "Get Over Perfectionism - eBook",
               desc: "A self-paced experience to soften self-criticism, build self-trust, and take aligned action without burning out.",
+              href: 'https://jasmin-miranda.kit.com/products/get-over-perfectionism'
             },
           ],
         } satisfies Extract<Section, { type: "featureGrid" }>,
@@ -306,18 +310,22 @@ export const site = {
           {
             title: "Women’s circles (Temple of Nurturing)",
             desc: "Curated evenings of connection, reflection, and grounded sisterhood in the inner NE Portland area.",
+            href: 'https://form.jotform.com/252805437656060'
           },
           {
             title: "Crystal singing bowl sound healing",
             desc: "Private or small-group sessions designed for deep relaxation, integration, and emotional reset.",
+            href: 'https://calendly.com/being-jasmin-miranda/private-alignment-call'
           },
           {
             title: "Personal training + supportive nutrition",
             desc: "Kelsey brings personal training and GAPS-certified nutritional support for sustainable strength, energy, and structure.",
+            href: 'https://instagram.com/coach1111collins'
           },
           {
-            title: "Get Over Perfectionism eBook",
+            title: "Get Over Perfectionism - eBook",
             desc: "A self-paced experience to soften self-criticism, build self-trust, and take aligned action without burning out.",
+            href: 'https://jasmin-miranda.kit.com/products/get-over-perfectionism'
           },
         ],
       },

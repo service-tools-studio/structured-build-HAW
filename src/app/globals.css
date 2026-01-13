@@ -13,11 +13,18 @@
 html,
 body {
   height: 100%;
+  /* Force a solid light theme regardless of host/browser dark mode */
+  background: hsl(var(--bg));
+  background-color: hsl(var(--bg));
+}
+
+html {
+  /* Tell the browser to treat this document as light-mode for scrollbars, etc. */
+  color-scheme: light;
 }
 
 body {
   font-family: var(--font-sans);
-  background: hsl(var(--bg));
   color: hsl(var(--fg));
 }
 

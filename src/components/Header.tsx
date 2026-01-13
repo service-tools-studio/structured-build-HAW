@@ -49,7 +49,7 @@ export default function Header({ nav }: { nav?: { label: string; href: string }[
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-border bg-bg">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <img
